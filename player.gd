@@ -13,6 +13,5 @@ func _physics_process(delta):
 	velocity = direction * speed
 	move_and_slide()
 
-	# Dash 逻辑：按下空格就瞬移
 	if Input.is_action_just_pressed("dash") and direction != Vector2.ZERO:
 		global_position += direction * dash_distance
