@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkp5a2s8ovww5"]
+[gd_scene load_steps=5 format=3 uid="uid://bkp5a2s8ovww5"]
 
 [ext_resource type="Script" uid="uid://d334r6emwf515" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://bxx2cnhprrxof" path="res://bullet.tscn" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://b7alnqhs0qyov" path="res://icon.svg" id="2_onrkg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_4flbx")
+bullet_scene = ExtResource("2_i3pqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_onrkg")
-
-[node name="Timer" type="Timer" parent="."]
