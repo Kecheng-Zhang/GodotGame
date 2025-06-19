@@ -14,7 +14,7 @@ var facing_direction := Vector2.RIGHT
 func _ready():
 	update_health_bar()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# 读取方向
 	direction = Input.get_vector("player_left", "player_right", "player_up", "player_down").normalized()
 	
