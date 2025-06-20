@@ -1,19 +1,13 @@
-extends CharacterBody2D
+extends CharacterBody2D  # 或 Area2D
 
-@export var speed := 50
-var direction := Vector2.ZERO
+@export var max_health := 100
+var current_health = max_health
 
-var enemy_scene = preload("res://Enemy.tscn")
+func take_damage(amount):
+	current_health -= amount
+	print("Enemy took ", amount, " damage! Remaining: ", current_health)
+	if current_health <= 0:
+		die()
 
-func _ready():
-	var enemy = enemy_scene.instantiate()
-	enemy.global_position = Vector2(400, 200)
-	add_child(enemy)
-
-func _physics_process(delta):
-	# 简单追踪玩家
-	var player = get_tree().get_root().get_node("Main/Player")  # 路径根据你的实际结构调整
-	if player:
-		direction = (player.global_position - global_position).normalized()
-		velocity = direction * speed
-		move_and_slide()
+func die():
+	queue_free()  # 删除节点

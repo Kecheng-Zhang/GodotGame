@@ -1,17 +1,11 @@
 extends Node2D
 
-@export var enemy_scene: PackedScene
-@onready var player = $Player
+@export var target_dummy_scene: PackedScene  # 在 Inspector 拖入 TargetDummy.tscn
 
 func _ready():
-	spawn_enemy()
+	spawn_target_dummy(Vector2(100, 0))
 
-func spawn_enemy():
-	if enemy_scene == null:
-		print("No enemy scene assigned")
-		return
-
-	var enemy = enemy_scene.instantiate()
-	enemy.global_position = Vector2(100, 100)
-	enemy.player = player
-	add_child(enemy)
+func spawn_target_dummy(spawn_position: Vector2):
+	var dummy = target_dummy_scene.instantiate()
+	dummy.global_position = spawn_position
+	add_child(dummy)

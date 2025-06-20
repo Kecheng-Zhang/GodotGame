@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdqcllq71i3rw"]
+[gd_scene load_steps=5 format=3 uid="uid://cdqcllq71i3rw"]
 
 [ext_resource type="Script" uid="uid://ble1wwmdb57a7" path="res://main.gd" id="1_uu6xs"]
 [ext_resource type="Texture2D" uid="uid://b7uakr0g68ebh" path="res://map1152-648.svg" id="2_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://ci6uresya0ecw" path="res://enemy.tscn" id="2_fos0i"]
 [ext_resource type="PackedScene" uid="uid://bkp5a2s8ovww5" path="res://player.tscn" id="2_r0du0"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_uu6xs")
+target_dummy_scene = ExtResource("2_fos0i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_cm0pq")
